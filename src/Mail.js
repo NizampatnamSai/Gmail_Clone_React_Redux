@@ -14,12 +14,17 @@ import PrintIcon from '@material-ui/icons/Print'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 import {useNavigate} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectOpenMail } from './features/mailSlice'
 
 
 
 
 
-function Mail() {
+function Mail( ) {
+
+  const selectedMail=useSelector(selectOpenMail)
+  console.log(selectedMail)
 
  const history=useNavigate()
 
@@ -95,15 +100,14 @@ function Mail() {
 
      <div className='mail_bodyHeader'>
        <h2>
-         Subject
-       </h2>
+           {selectedMail?.subject}       </h2>
      <LabelImportantIcon className='mail_important'/>
-     <p>Title</p>
-     <p className='mail_time'>4:10px</p>
+     <p>{selectedMail?.title} </p>
+     <p className='mail_time'>{selectedMail?.time} </p>
      </div>
       
       <div className='mail_message'> <p>
-This is a message</p>
+      {selectedMail?.description} </p>
       </div>
 
    </div>

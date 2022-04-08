@@ -23,3 +23,11 @@
     
 
 }
+
+.emailList_list {
+    padding-bottom: 20px;
+}
+
+.emailList ::-webkit-scrollbar{
+    display: none;
+}
