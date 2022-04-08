@@ -13,6 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PersonIcon from '@material-ui/icons/Person';
 import DuoIcon from '@material-ui/icons/Duo';
 import PhoneIcon from '@material-ui/icons/Phone';
+import {useDispatch, useSelector} from 'react-redux'
+import {openSendMesssage} from './features/mailSlice'
 
 
 
@@ -20,9 +22,15 @@ import PhoneIcon from '@material-ui/icons/Phone';
 
 
 function Sidebar() {
+
+const dispatch=useDispatch()
+
   return (
     <div className='sidebar'>
-      <Button startIcon={<AddIcon fontSize='large'  />} className='sidebar_compose'>
+      <Button startIcon={<AddIcon fontSize='large'  />} className='sidebar_compose'
+      onClick={()=>dispatch(
+        openSendMesssage()
+      )}>
           Compose
       </Button>
       <SidebarOption Icon={InboxIcon} title='Inbox' number={54} selected={true}/>
