@@ -12,6 +12,7 @@ function EmailRow({title, subject, description,time,id}) {
   
   
   
+  
   return (
     <div onClick={()=>history("/mail")}
      className='emailRow'>
